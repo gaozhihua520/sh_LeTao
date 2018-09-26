@@ -1,0 +1,15 @@
+.body_bg {
+  background-color: #222D32;
+}
+.container {
+  margin-top: 150px;
+}
+.panel .panel-heading {
+  background-color: #337ab7;
+}
+.panel .panel-title {
+  line-height: 30px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
