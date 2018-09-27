@@ -98,7 +98,7 @@ $(function(){
   // 3 表单重置
   // 属性值为reset的元素，注册点击事件
   $('[type="reset"]').click(function() {
-    console.log( 1111 );
+    // console.log( 1111 );
     // 除了重置文本, 还要重置校验状态，利用插件的方法
     // resetForm(),传true，表单内容和校验状态都要重置，false，只重置校验状态
     $('#form').data("bootstrapValidator").resetForm();
