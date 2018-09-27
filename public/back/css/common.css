@@ -108,6 +108,7 @@ ul {
   top: 0;
   position: fixed;
   padding-left: 180px;
+  z-index: 888;
 }
 .lt_main .header.hidemenu {
   padding-left: 0;
@@ -125,7 +126,7 @@ ul {
   padding-left: 180px;
   padding-top: 50px;
   height: 1000px;
-  background-color: pink;
+  /* background-color: pink; */
   /* 过渡动画 */
   transition: all 1s;
 }
@@ -139,5 +140,5 @@ ul {
 .lt_main .lt_content .echarts_1, .echarts_2 {
   width: 48%;
   height: 400px;
-  background-color: salmon;
+  /* background-color: salmon; */
 }
