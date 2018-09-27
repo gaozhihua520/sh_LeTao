@@ -1,3 +1,20 @@
+/* 去掉a的一些默认样式 */
+a:link,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lt_red {
+  color: #A94442;
+}
+
+/* 登录页面 */
 .body_bg {
   background-color: #222D32;
 }
@@ -12,4 +29,115 @@
   font-size: 18px;
   text-align: center;
   color: white;
+}
+
+/* 首页的公共左侧边栏 */
+.lt_aside {
+  width: 180px;
+  height: 100%;
+  background-color: #222D32;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 1s;
+}
+.lt_aside.hidemenu {
+  left: -180px;
+}
+.lt_aside .title {
+  width: 180px;
+  height: 50px;
+  background-color: #367FA9;
+  top: 0;
+  left: 0;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
+}
+.lt_aside .title a {
+  color: #fff;
+}
+.lt_aside .user {
+  height: 180px;
+  padding-top: 30px;
+}
+.lt_aside .user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.lt_aside .user p {
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.lt_aside .nav a {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  display: block;
+  /* 给每一个a的左边都添加一个透明的边框 */
+  border-left: 3px solid transparent;
+  padding-left: 40px;
+}
+.lt_aside .nav a.current {
+  /* a导航加上current类，改变边框的颜色，自身高亮 */
+  background-color: #1D1F21;
+  border-left: 3px solid #006699;
+}
+.lt_aside .nav a i {
+  margin-right: 5px;
+}
+.lt_aside .nav .child a {
+  padding-left: 60px;
+}
+
+/* 主体部分头部区域 */
+.lt_main .header {
+  width: 100%;
+  height: 50px;
+  background-color: #367FA9;
+  left: 0;
+  top: 0;
+  position: fixed;
+  padding-left: 180px;
+}
+.lt_main .header.hidemenu {
+  padding-left: 0;
+}
+/* 头部添加这个类名之后左边距消失 */
+.lt_main .header a {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+}
+.lt_main {
+  padding-left: 180px;
+  padding-top: 50px;
+  height: 1000px;
+  background-color: pink;
+  /* 过渡动画 */
+  transition: all 1s;
+}
+/* 当主体部分添加上这个hidemenu这个类名的时候，左边距消失 */
+.lt_main.hidemenu {
+  padding-left: 0px;
+}
+.lt_main .breadcrumb {
+  margin-top: 20px;
+}
+.lt_main .lt_content .echarts_1, .echarts_2 {
+  width: 48%;
+  height: 400px;
+  background-color: salmon;
 }
