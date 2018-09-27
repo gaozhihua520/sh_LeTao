@@ -90,7 +90,7 @@
           <tbody>
 
             <!-- 下面的数据都是动态渲染的 -->
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>itcast</td>
               <td>15346798400</td>
@@ -98,10 +98,16 @@
               <td>
                 <button class="btn btn-danger">禁用</button>
               </td>
-            </tr>
+            </tr> -->
 
           </tbody>
         </table>
+
+        <!-- 分页容器 -->
+        <div class="text-right">
+          <ul id="paginator"></ul>
+        </div>
+
       </div>
     </div>
   </div>
@@ -132,13 +138,38 @@
 </div>
 
 
+<!-- 模板引擎 -->
+<script type="text/template" id = "tmp">
+  {{ each rows v i }}
+  <tr>
+    <!-- 因为i是从0开始的，所以加1，但每一页的id不一样，所以还要从前一页最后一个id开始算 -->
+    <td>{{ i + 1 + (page-1) * size }}</td>
+    <td>{{ v.username }}</td>
+    <td>{{ v.mobile }}</td>
+    <td>{{ v.isDelete === 1 ? "正常" : "已禁用" }}</td>
+    <td>
+      <!-- 当状态isDelete=0 的时候，启用按钮出现 -->
+      {{ if v.isDelete === 0 }}
+      <button class="btn btn-success">启用</button>
+      {{ /if }}
+
+       <!-- 当状态isDelete=1 的时候，禁用按钮出现 -->
+      {{ if v.isDelete === 1 }}
+      <button class="btn btn-danger">禁用</button>
+      {{ /if }}
+    </td>
+  </tr>
+  {{ /each }}
+</script>
 
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
 <script src="./js/checklogin.js"></script>
 <script src="./js/common.js"></script>
-<!-- <script src="./js/user.js"></script> -->
+<script src="./js/user.js"></script>
 </body>
 </html>
