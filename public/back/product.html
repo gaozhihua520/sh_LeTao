@@ -73,6 +73,7 @@
       </ol>
       <!-- 底部内容 -->
       <div class="lt_content">
+
         <button class="btn btn-default" style="margin-bottom: 20px;" id="addBtn">添加商品</button>
 
         <table class="table table-hover table-bordered">
@@ -113,7 +114,7 @@
 
   <!-- 添加商品模态框 -->
   <div class="modal fade" tabindex="-1" id="addModal">
-      <div class="modal-dialog  modal-sm">
+      <div class="modal-dialog">
         <div class="modal-content">
           <form id="form">
             <div class="modal-header">
@@ -128,13 +129,62 @@
                     <span id="dropdownTxt">请选择二级分类</span>
                     <span class="caret"></span>
                   </button>
+                  <!-- 二级分类列表 -->
+                  <ul class="dropdown-menu">
+                    <!-- 动态渲染，准备模板 -->
+                    <!-- <li><a href="#">新百伦</a></li> -->
+                  </ul>
                 </div>
+                <!-- 归属的品牌id -->
+                <input type="hidden" name="brandId">
+                <!-- 是否已上架，默认上架，statu：1 -->
+                <input type="hidden" name="statu" value="1">
+              </div>
+
+              <div class="form-group">
+                <input type="text" name="proName" class="form-control" placeholder="请输入商品名称">
+              </div>
+
+              <div class="form-group">
+                <textarea name="proDesc" class="form-control" rows="3" placeholder="请输入商品描述"></textarea>
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="num" class="form-control" placeholder="请输入商品库存">
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="size" class="form-control" placeholder="请输入商品尺码">
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="oldPrice" class="form-control" placeholder="请输入商品原价">
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="price" class="form-control" placeholder="请输入商品现价">
+              </div>
+
+              <div class="form-group">
+                 <label for="fileupload" class="btn btn-default">上传图片</label>
+                  <!-- 指定 name 用于后台将来接收文件
+                 指定 data-url 用于指定后台文件上传的地址
+                 multiple 设置用于让用户可以选择多张文件
+                  -->
+
+                  <!-- 利用btn-default的样式，input上传文件的功能，用id将两者链接起来，实现文件上传 -->
+                <input type="file" style="display: none;" id="fileupload" name="pic1" data-url="/product/addProductPic"
+                multiple>
+              </div>
+
+            <div class="form-group" id="img_box">
+              <input type="hidden" name="picStatus">
               </div>
             </div>
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-primary" id="productBtn">退出</button>
+              <button type="submit" class="btn btn-primary" id="add">添加</button>
             </div>
 
           </form>
@@ -190,6 +240,14 @@
         {{ /if }}
       </td>
     </tr>
+  {{ /each }}
+</script>
+
+<!-- 二级分类下拉列表动态渲染模板 -->
+<script type="text/template" id="dropdownTmp">
+  {{ each rows v i }}
+    <li><a data-id="{{v.id}}" href="#">{{v.brandName
+       }}</a></li>
   {{ /each }}
 </script>
 
