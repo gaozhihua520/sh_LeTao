@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <!-- 引入字体图标库 -->
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/category.css">
+</head>
+<body>
+  <div class="lt_content">
+    <!-- 乐淘头部 -->
+    <div class="lt_header">
+      <a href="#" class="icon_left">
+        <i class="fa fa-home"></i>
+      </a>
+      <h3>乐淘云购</h3>
+      <a href="search.html" class="icon_right">
+        <i class="fa fa-search"></i>
+      </a>
+    </div>
+
+    <!-- 中间部分 -->
+    <div class="lt_main">
+      <!-- 左侧 -->
+      <div class="lt_category_left">
+        <div class="mui-scroll-wrapper">
+          <div class="mui-scroll">
+            <!--这里放置真实显示的DOM内容-->
+            <ul>
+              <!-- <li><a href="#" class="current">女士馆</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧 -->
+      <div class="lt_category_right">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+              <!--这里放置真实显示的DOM内容-->
+                <ul>
+                  <!-- 动态渲染数据，准备模板 -->
+                  <!-- <li>
+                    <a href="#">
+                      <img src="./images/brand1.png" alt="">
+                      <p>耐克</p>
+                    </a>
+                  </li> -->
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 乐淘底部 -->
+    <div class="lt_footer">
+      <ul>
+        <li>
+          <a href="index.html">
+            <i class="fa fa-home"></i>
+            <p>首页</p>
+          </a>
+        </li>
+        <li>
+          <a href="category.html" class="current">
+            <i class="fa fa-bars"></i>
+            <p>分类中心</p>
+          </a>
+        </li>
+        <li>
+          <a href="cart.html">
+            <i class="fa fa-shopping-cart"></i>
+            <p>购物车</p>
+          </a>
+        </li>
+        <li>
+          <a href="user.html">
+            <i class="fa fa-user"></i>
+            <p>用户中心</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 左侧模板引擎 -->
+  <script type="text/html" id="categoryTmp">
+    {{ each rows v i }}
+    <!-- 判断当前a的下标是不是0，默认第一个高亮，是就加类名current，不是就移除current -->
+      <li><a href="#" class="{{ i === 0 ? 'current': ''}}" data-id={{ v.id }}>{{ v.categoryName }}</a></li>
+    {{ /each }}
+  </script>
+
+  <!-- 右侧模板引擎 -->
+  <script type="text/html" id="rightTmp">
+    <!-- 判断数据库有没有数据，如果没有数据了，就渲染下面一句话 -->
+    {{ if rows.length === 0 }}
+      <p class="tips">没有跟多数据了</p>
+    {{ /if }}
+
+    {{ each rows v i }}
+      <li>
+        <a href="#">
+          <img src="{{ v.brandLogo }}" alt="">
+          <p>{{ v.brandName }}</p>
+        </a>
+      </li>
+    {{ /each }}
+  </script>
+
+
+
+  <script src="./lib/mui/js/mui.js"></script>
+  <script src="./lib/zepto/zepto.min.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/category.js"></script>
+</body>
+</html>

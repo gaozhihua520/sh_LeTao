@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <!-- 引入字体图标库 -->
+  <link rel="stylesheet" href="./lib/fa/css/font-awesome.css">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/search.css">
+</head>
+<body>
+  <div class="lt_content">
+    <!-- 乐淘头部 -->
+    <div class="lt_header">
+        <!-- 点击 a 标签, 返回上一页 javascript:history.go(-1); -->
+      <a href="javascript:history.go(-1);" class="icon_left">
+        <i class="mui-icon mui-icon-back"></i>
+      </a>
+      <h3>搜索中心</h3>
+    </div>
+
+    <div class="lt_main">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <!--这里放置真实显示的DOM内容-->
+          <!-- 搜索框 -->
+          <div class="lt_search">
+            <input type="text" placeholder="请输入关键字">
+            <button class="mui-btn mui-btn-primary search_btn">搜索</button>
+          </div>
+
+          <!-- 搜索历史 -->
+          <div class="lt_history">
+            <!-- 准备模态框，动态渲染数据 -->
+
+            <!-- 历史标题 -->
+            <!-- <div class="title">
+              <span class="mui-pull-left">搜索历史</span>
+              <span class="mui-pull-right btn_empty">
+                <i class="fa fa-trash"></i>
+                清空历史
+              </span>
+            </div> -->
+            <!-- 历史内容 -->
+            <!-- <div class="content">
+              <ul>
+                <li>
+                  <a href="#" class="mui-pull-left">匡威</a>
+                  <i class="btn_delete mui-pull-right mui-icon mui-icon-closeempty"></i>
+                </li>
+                <li>
+                  <a href="#" class="mui-pull-left">匡威</a>
+                  <i class="btn_delete mui-pull-right mui-icon mui-icon-closeempty"></i>
+                </li>
+                <li>
+                  <a href="#" class="mui-pull-left">匡威</a>
+                  <i class="btn_delete mui-pull-right mui-icon mui-icon-closeempty"></i>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  
+    <!-- 乐淘底部 -->
+    <div class="lt_footer">
+      <ul>
+        <li>
+          <a href="#">
+            <i class="fa fa-home"></i>
+            <p>首页</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-bars"></i>
+            <p>分类中心</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-shopping-cart"></i>
+            <p>购物车</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-user"></i>
+            <p>用户中心</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 历史记录模态框 -->
+  <script type="text/template" id="historyTmp">
+    <!-- 判断，当数组的长度为0，没有历史记录的时候，显示一下数据 -->
+    {{ if arr.length == 0 }}
+      <p>没有更多数据了</p>
+    {{ else }}
+       <!-- 历史标题 -->
+      <div class="title">
+        <span class="mui-pull-left">搜索历史</span>
+        <span class="mui-pull-right icon_empty">
+          <i class="fa fa-trash"></i>
+          清空历史
+        </span>
+      </div>
+      <!-- 历史内容 -->
+      <div class="content">
+        <ul>
+          {{ each arr v i }}
+            <li>
+              <a href="#" class="mui-pull-left">{{ v }}</a>
+              <i data-index = {{ i }} class="icon_delete mui-pull-right mui-icon mui-icon-closeempty"></i>
+            </li>
+          {{ /each }}
+        </ul>
+      </div>
+    {{ /if }}
+  </script>
+
+  <script src="./lib/zepto/zepto.min.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/mui/js/mui.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+/* 导航部分 */
+.lt_nav {
+  padding: 10px;
+}
+.lt_nav ul li {
+  float: left;
+  width: 33.3%;
+}
+.lt_nav ul li a {
+  display: block;
+}
+
